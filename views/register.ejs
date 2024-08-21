@@ -1,0 +1,255 @@
+<%- include('layouts/outerheader'); -%>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css'>
+<style>
+.btn_wid_shanal .btn{
+width:60% !important;}
+.information-processing-form {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.acnt_img{
+    text-align: center;
+    position: relative;
+    bottom: 25px;
+    right: 15px;}
+.acnt_img img{
+width:150px;}
+.btn{
+    padding: 12px;
+	}
+	.form-floating>.form-control:-webkit-autofill~label{
+font-size: 16px !important;}
+label.text-black-50{
+font-size: 15px !important;
+}
+.border-danger{
+border-color: #000!important;
+}
+.padding_set{
+padding: 10px 60px !important;
+}
+.error-text {
+    color: #c0392b;
+    font-size: 14px;
+}
+.requiredError{
+color: #c0392b;
+    font-size: 14px;
+}
+.requiredErrorSecurityCheck{
+color: #c0392b;
+    font-size: 14px;
+}
+.textonimg {
+    position: static;
+    font-weight: bold;
+    font-size: 20px;
+    top: 60%;
+    left: 33%;
+    transform: none;
+}
+.pdbtm20{
+padding-bottom:20px;
+}
+.fnt16{
+font-size:16px;}
+body{
+    background-image: none;}
+</style>
+
+<body>
+
+<section class="container information-processing-form rounded-2">
+  <div class="row d-flex align-items-center">
+    <div class="col-sm-6 d-block">
+      <img src="/images/bg-register.png" alt="banner left form" width="100%" class="rounded-5">
+    </div>
+    <div class="col pt-5">
+	<div class="acnt_img">
+		<img src="images/logo_transparent.png">
+	</div>
+      <h3 class="text-center">Create Account</h3>      
+       
+	   <form method="post" action="/register" class="padding_set" id="submitFormValidate">
+                        <div> 
+                          <div class="row">
+                            <div class="register_input col-md-6">
+                              <div class="form-floating mb-3" >
+                                  
+                                <input id="email" placeholder="Username" type="text" name="userName" class="inputError form-control shadow-none border-danger"
+                                value="<%= typeof userName !== 'undefined' ? userName : '' %>">
+								<label for="password" class="text-black-50">Username</label>
+                              </div>
+                              <span role="alert" class="requiredError" aria-hidden="true">
+                                  Please enter Username
+                              </span>
+                            </div>
+                            <div class="register_input col-md-6">
+                              <div class="form-floating mb-3">
+                                  
+                                <input id="pass-field" placeholder="Email" type="email" name="email" class="inputError form-control shadow-none border-danger  emailInput">
+								<label for="password" class="text-black-50">Your Email</label>
+                              </div>
+                              <span role="alert" class="requiredError" aria-hidden="true">
+                                  Please enter Email
+                                </span>
+                            </div>
+                          </div>
+                          <div class="row">
+                              
+                              <div class="register_input col-md-6">
+                                  <div class="form-floating mb-3">                                    
+                                    <input id="confirmemail" placeholder="Confirm Email" type="email" name="confirmemail" class="inputError form-control shadow-none border-danger emailInput">
+									<label for="password" class="text-black-50">Confirm Your Email</label>
+                                </div>
+                                <span role="alert" class="requiredError" aria-hidden="true">
+                                    Please enter Confirm Email
+                                </span>
+                              </div>
+                              <div class="register_input col-md-6">
+                                  <div class="form-floating mb-3">
+                                    
+                                    <input id="pass-field" placeholder="Password" type="password" name="password" class="inputError form-control shadow-none border-danger"
+                                      value="<%= typeof userName !== 'undefined' ? userName : '' %>">
+									  <label for="password" class="text-black-50">Create New Password</label>
+                                  </div>
+                                  <span role="alert" class="requiredError" aria-hidden="true">
+                                    Please enter Password
+                                    </span>
+                                </div>
+                          </div>
+                          <div class="row">
+                          
+                            <div class="register_input col-md-6">
+                                <div class="form-floating mb-3">
+                                
+                                  <input id="pass-field" placeholder="Confirm password" type="password" name="confirmpassword" class="inputError form-control shadow-none border-danger"
+                                    value="<%= typeof confirmpassword !== 'undefined' ? confirmpassword : '' %>">
+									<label for="password" class="text-black-50">Confirm New Password</label>
+                                  </div>
+                                  <span role="alert" class="requiredError" aria-hidden="true">
+                                    Please enter Confirm Password
+                                  </span>
+                              </div>
+                              <div class="register_input col-md-6">
+                                  <div class="form-floating mb-3">
+                                
+                                    <input id="securityQuestion" placeholder="Security Question" type="text" name="securityQuestion" class="inputError form-control shadow-none border-danger"
+                                    value="<%= typeof securityQuestion !== 'undefined' ? securityQuestion : '' %>">
+									<label for="password" class="text-black-50">Security Question</label>
+                                  </div>
+                                  <span role="alert" class="requiredError" aria-hidden="true">
+                                    Please enter Security Question
+                                  </span>
+                            </div>
+                            </div>
+                          <div class="row">
+                            
+                            <div class="register_input col-md-6">
+                              <div class="form-floating mb-3">
+                                  
+                                        <input id="securityAnswer" placeholder="Security Answer" type="text" name="securityAnswer" class="inputError form-control shadow-none border-danger"
+                                        value="<%= typeof securityAnswer !== 'undefined' ? securityAnswer : '' %>">
+										<label for="password" class="text-black-50">Security Answer</label>
+                              </div>
+                                <span role="alert" class="requiredError" aria-hidden="true">
+                                  Please enter security Answer
+                              </span>
+                            </div>
+                            </div>
+                                   
+                            <% if (errors && errors.length> 0) { %>
+                                <div class="error-message">
+                                  <% for (let i=0; i < errors.length; i++) { %>
+                                    <p class="error-text">
+                                      <%= errors[i].msg %>
+                                    </p>
+                                    <% } %>
+                                </div>
+                            <% } %>
+                             
+							 <div class="btn_wid_shanal text-center">
+                                <input id="submitId" value="Register" type="submit" class="mb-2 btn login_btn" onclick="validateForm(event)">
+                             </div>
+                            <div class="create-account text-center">
+          <span>Already have an account? </span><a href="login" class="text-decoration-none">Login !</a>
+        </div>
+                             
+                        </div>
+                    </form>
+					
+       
+    </div>
+  </div>
+</section>
+
+	 
+</body>
+<script>
+  function validateForm(e) {
+      const form = document.getElementById('submitFormValidate')
+      e.preventDefault();
+      const userNameField = document.getElementsByClassName("inputError");
+      let vaClass = true;
+          for (var i = 0; i < userNameField.length; i++) {
+              if (!userNameField[i].value) {
+                  vaClass = false;
+                  const showRequiredErr = document.getElementsByClassName("requiredError");
+                  showRequiredErr[i].classList.add("visible");
+                  userNameField[i].classList.add("invalid");
+                  showRequiredErr[i].setAttribute("aria-hidden", false);
+                  showRequiredErr[i].setAttribute("aria-invalid", true);
+              }else{
+                  const showRequiredErr = document.getElementsByClassName("requiredError");
+                  showRequiredErr[i].classList.remove("visible");
+                  userNameField[i].classList.remove("invalid");
+                  showRequiredErr[i].setAttribute("aria-hidden", true);
+                  showRequiredErr[i].setAttribute("aria-invalid", false);
+                  if(userNameField[i].value.length > 30){
+                    vaClass = false;
+                    document.getElementsByClassName("requiredError")[i].textContent = "Maximum 30 characters are allowed";
+                    const showlengthErr = document.getElementsByClassName("requiredError");
+                    showlengthErr[i].classList.add("visible");
+                    userNameField[i].classList.add("invalid");
+                    showlengthErr[i].setAttribute("aria-hidden", false);
+                    showlengthErr[i].setAttribute("aria-invalid", true);
+                  }else{
+                    if(i == 1 || i == 2){
+                      let userEmail = document.getElementsByClassName('emailInput')[i-1].value;
+                      let regex = new RegExp(/\S+@\S+\.\S+/);
+                      let isValid = regex.test(userEmail);
+                      console.log(document.getElementsByClassName('emailInput')[0].value,userEmail,'fghgfhf',isValid,i)
+                      if (isValid) {
+                          const showlengthErr = document.getElementsByClassName("requiredError");
+                          showlengthErr[i].classList.remove("visible");
+                          userNameField[i].classList.remove("invalid");
+                          showlengthErr[i].setAttribute("aria-hidden", true);
+                          showlengthErr[i].setAttribute("aria-invalid", false);
+                      } else {
+                          vaClass = false;
+                          document.getElementsByClassName("requiredError")[i].textContent = i == 1 ? "Email is not a valid email address" : "Confirm Email is not a valid email address";
+                          const showlengthErr = document.getElementsByClassName("requiredError");
+                          showlengthErr[i].classList.add("visible");
+                          userNameField[i].classList.add("invalid");
+                          showlengthErr[i].setAttribute("aria-hidden", false);
+                          showlengthErr[i].setAttribute("aria-invalid", true);
+                      }
+                    }else{
+                      const showlengthErr = document.getElementsByClassName("requiredError");
+                      showlengthErr[i].classList.remove("visible");
+                      userNameField[i].classList.remove("invalid");
+                      showlengthErr[i].setAttribute("aria-hidden", true);
+                      showlengthErr[i].setAttribute("aria-invalid", false);
+                    }
+                  }
+              }
+          }
+      if(vaClass){
+          form.submit();
+      }else{
+          return false;
+      }
+  }
+  </script>

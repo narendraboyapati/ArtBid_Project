@@ -1,0 +1,215 @@
+<%- include('layouts/innerheader'); -%>
+
+<body onload="dateCheck()">
+     <div class="flex_div_bread">
+    <div class="pdhs">
+       <svg class="svgt" _ngcontent-ng-c3832377555="" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path _ngcontent-ng-c3832377555="" d="M1.42393 16H15.5759C15.6884 16 15.7962 15.9584 15.8758 15.8844C15.9553 15.8104 16 15.71 16 15.6054V6.29143C16 6.22989 15.9846 6.1692 15.9549 6.11422C15.9252 6.05923 15.8821 6.01147 15.829 5.97475L8.75305 1.07803C8.67992 1.02736 8.59118 1 8.5 1C8.40882 1 8.32008 1.02736 8.24695 1.07803L1.17098 5.97587C1.11791 6.01259 1.0748 6.06035 1.04511 6.11534C1.01543 6.17033 0.999976 6.23101 1 6.29255V15.6063C1.00027 15.7108 1.04504 15.8109 1.12451 15.8847C1.20398 15.9585 1.31165 16 1.42393 16ZM10.1464 15.2107H6.85241V10.6202H10.1464V15.2107ZM1.84866 6.48977L8.4999 1.88561L15.1517 6.48977V15.2107H10.9946V10.2256C10.9946 10.1209 10.95 10.0206 10.8704 9.94654C10.7909 9.87254 10.683 9.83096 10.5705 9.83096H6.42848C6.316 9.83096 6.20812 9.87254 6.12858 9.94654C6.04904 10.0206 6.00435 10.1209 6.00435 10.2256V15.2107H1.84806L1.84866 6.48977Z" fill="#55585B" stroke="#55585B" stroke-width="0.5"></path></svg> <span class="hme"><a href="/welcome">Home</a></span><span class="bread_div">/</span><span class="hme">Checkout</span>
+    </div>
+	
+</div>
+    
+    <section >
+        <div class="container-fluid py-5">
+          <div class="row d-flex justify-content-center my-4">
+                <div class="col-md-8 order-md-1">
+
+                    <div class="card mb-4">
+                        <div class="card-header py-3">
+                        <h5 class="mb-0">Billing Address And Payment</h5>
+                        </div>
+                        <div class="card-body">
+
+                            <h4 class="mb-3">Billing Address</h4>
+                        <!-- Single item -->
+                        <form method="post" action="/purchase" class="needs-validation" novalidate="">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="firstName">First name</label>
+                                    <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                                    <div class="invalid-feedback"> Valid first name is required. </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="lastName">Last name</label>
+                                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                                    <div class="invalid-feedback"> Valid last name is required. </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="username">Username</label>
+                                <div class="input-group">
+                                
+                                    <input type="text" class="form-control" id="username" placeholder="Username" required="">
+                                    <div class="invalid-feedback" style="width: 100%;"> Your username is required. </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email">Email <span class="text-muted">(Optional)</span></label>
+                                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                                <div class="invalid-feedback"> Please enter a valid email address for shipping updates. </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="address">Address</label>
+                                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+                                <div class="invalid-feedback"> Please enter your shipping address. </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+                                <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5 mb-3">
+                                    <label for="country">Country</label>
+                                    <select class="custom-select d-block w-100" id="country" required="">
+                                        <option value="">Choose...</option>
+                                        <option>India</option>
+                                        <option>Canada</option>
+                                    </select>
+                                    <div class="invalid-feedback"> Please select a valid country. </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="state">State</label>
+                                    <select class="custom-select d-block w-100" id="state" required="">
+                                        <option value="">Choose...</option>
+                                        <option>Canada</option>
+                                        <option>U.P.</option>
+                
+                                    </select>
+                                    <div class="invalid-feedback"> Please provide a valid state. </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="zip">Zip</label>
+                                    <input type="text" class="form-control" id="zip" placeholder="" required="">
+                                    <div class="invalid-feedback"> Zip code required. </div>
+                                </div>
+                            </div>
+                        
+                            <hr class="mb-4">
+                            <h4 class="mb-3">Payment</h4>
+                            <div class="d-block my-3">
+                                
+                                <div class="custom-control custom-radio">
+                                    <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                                    <label class="custom-control-label" for="paypal">PayPal</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input id="cod" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+                                    <label class="custom-control-label" for="cod">Cash On Delivery</label>
+                                </div>
+                            </div>
+                            <!-- <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="cc-name">Name on card</label>
+                                    <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                                    <small class="text-muted">Full name as displayed on card</small>
+                                    <div class="invalid-feedback"> Name on card is required </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="cc-number">Credit card number</label>
+                                    <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+                                    <div class="invalid-feedback"> Credit card number is required </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <label for="cc-expiration">Expiration</label>
+                                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+                                    <div class="invalid-feedback"> Expiration date required </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="cc-cvv">CVV</label>
+                                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+                                    <div class="invalid-feedback"> Security code required </div>
+                                </div>
+                            </div> -->
+                            <hr class="mb-4">
+                            <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="validateForm()">Buy Now</button>
+                        </form>
+                        <!-- Single item -->
+            
+                        <hr class="my-4" />
+
+            
+                        <!-- Single item -->
+                        
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                      <div class="card-header py-3">
+                        <h5 class="mb-0">Summary</h5>
+                      </div>
+                      <div class="card-body cart-data">
+                        <ul class="list-group list-group-flush">
+                          <li
+                            class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                            Item Cost($)
+                            <span id="cost"><%= total %></span>
+                          </li>
+                          <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                            Shipping($)
+                            <span>10</span>
+                          </li>
+                          <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                            Tax(10%)($)
+                            <span id="percent"></span>
+                          </li>
+                          <li
+                            class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                            <div>
+                              <strong>Total amount($)</strong>
+                              
+                            </div>
+                            <span><strong id="total"><%= total %></strong></span>
+                          </li>
+                        </ul>
+                       
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                </div>
+                </section>
+</body>
+
+<script>
+    function validateForm() {
+        'use strict'
+        var forms = document.getElementsByClassName('needs-validation')
+        let vaClass = true;
+        Array.prototype.filter.call(forms, function (form) {
+            console.log(form,'hddg',form.checkValidity());
+            form.addEventListener('submit', function (event) {
+                console.log(form.checkValidity(),form);
+                if (form.checkValidity() === false) {
+                    vaClass = false;
+                    event.preventDefault()
+                    event.stopPropagation()
+                }else{
+                    vaClass = true;
+                }
+                form.classList.add('was-validated')
+                if(vaClass){
+                    form.submit();
+                }
+            })
+        })
+  }
+  function dateCheck() {
+
+        var cost = document.getElementById('cost').innerHTML
+        var per = document.getElementById('percent').innerHTML
+
+        var percent = (parseFloat(cost)/100) * 10;
+        document.getElementById('percent').innerHTML = percent.toFixed(2);
+
+        var total = parseFloat(cost) + 10 + parseFloat(percent);
+
+        document.getElementById('total').innerHTML = total.toFixed(2);
+
+}
+</script>
+
+<%- include('layouts/footer'); -%>

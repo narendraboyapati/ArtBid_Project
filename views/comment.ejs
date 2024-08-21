@@ -1,0 +1,51 @@
+<script>
+  import moment from 'moment';
+
+</script>
+<section style="background-color: #f7f6f6;">
+    <div class="container my-5 py-5 text-dark">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12 col-lg-10 col-xl-12 comment_scroll">
+        
+          <% if (comment[0].comment && comment[0].comment.length> 0) { %>
+          <% comment[0].comment.forEach((comments,key1) => { %>
+  
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex flex-start">
+                <% if (comments.userData[0].profile_image) { %>
+                <img class="rounded-circle shadow-1-strong me-3"
+                  src="<%= comments.userData[0].profile_image %>" alt="avatar" width="40"
+                  height="40" />
+                  <% }else { %>  
+                    <img class="rounded-circle shadow-1-strong me-3"
+                    src="http://localhost:8081/images/dummy.png" alt="avatar" width="40"
+                    height="40" />
+                <% } %>
+                <div class="w-100">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h6 class="text-primary fw-bold mb-0">
+                       <div class="comment_user_name"> <%= comments.userData[0].userName %></div>
+                       <div class="comment_date"> <span class="text-dark ms-2"><%= moment(comments.created_at).format('DD-MM-YYYY HH:mm:ss') %></span></div>                      
+                      <div class="comment_text"><span class="text-dark ms-2"><%= comments.comment %></span></div>
+                    </h6>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <% }) %>  
+                <% }else { %>   
+                    <div>
+                        <span>No Record found</span>
+                    </div>
+                <% } %>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+  
