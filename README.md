@@ -7,8 +7,8 @@ Artists have the freedom to set their own rules and select the best offers. Our 
 
 
 Technologies Used:  
-Web Development: HTML, CSS, JavaScript for front-end web development to create the platform's user interface and interactivity.
-Back-End Development: Node.js, Express.js for building the server that handles user requests, database interactions, and business logic.
-Database Management: Mongoose for managing and storing user data, advertisements, artwork listings, cart data and bidding history.
+Web Development: HTML, CSS,  for a dynamic and interactive user interface.
+Back-End Development: JavaScript Node.js with Express.js Framework to handle server-side logic, database interactions, and user requests.
+Database Management: Mongoose for managing and storing user data, advertisements, artwork listings, cart data, and bidding history.
 
 
